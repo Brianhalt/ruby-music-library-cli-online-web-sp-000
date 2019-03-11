@@ -42,8 +42,8 @@ class MusicLibraryController
 
    def list_songs
     #  binding.pry
-    Song.all.each_with_index {|song,index|puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
-    # Song.all.each_with_index do |song, index| puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+    # Song.all.each_with_index {|song,index|puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
+    Song.all.each_with_index do |song, index| puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
   end
 
    def list_artists
