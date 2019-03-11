@@ -94,6 +94,12 @@ class MusicLibraryController
 
        end
 
+       def name_extractor(filename)
+         #Returns an array, first value is artist, second is song, third is genre
+         file_bits = filename.gsub(/(\.mp3)/,'')
+         file_bits = file_bits.split(" - ")
+       end     
+
   def song_array
     sorted_library = self.library.sort_by {|song|song.name}
     sorted_library.collect do |song|
