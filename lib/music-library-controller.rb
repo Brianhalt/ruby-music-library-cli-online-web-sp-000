@@ -23,7 +23,7 @@ class MusicLibraryController
       when "list songs"
         list_songs
       when "list artists"
-        list_artists
+        list_songs_by_artist
       when "list genres"
         list_genres
       when "play song"
@@ -130,8 +130,6 @@ class MusicLibraryController
       puts "Artist does not exist"
     end
   end
-
-
 
 
    def list_genre
