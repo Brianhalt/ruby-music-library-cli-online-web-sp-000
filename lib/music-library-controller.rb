@@ -55,18 +55,21 @@ class MusicLibraryController
     end
   end
 
-  def list_songs_by_artist
-    puts "Please enter the name of an artist:"
-    user_input = gets.chomp
-    artist_songs =[]
-    self.library.each do |song|
-        if song.artist.name == user_input
-          artist_songs << song
+    def list_songs_by_artist
+        puts "Please enter the name of an artist:"
+        user_input = gets.chomp
+        artist_songs =[]
+        self.library.each do |song|
+            if song.artist.name == user_input
+              artist_songs << song
+            end
         end
-    end
-    artist_songs = artist_songs.sort_by{|song|song.name}
-      artist_songs.each {|song|puts "#{artist_songs.index(song) + 1}. #{song.name} - #{song.genre.name}"} unless artist_songs == nil
-    end
+        artist_songs = artist_songs.sort_by{|song|song.name}
+        artist_songs.each {|song|puts "#{artist_songs.index(song) + 1}. #{song.name} - #{song.genre.name}"} unless artist_songs == nil
+      end
+
+
+
 
     def list_songs_by_genre
         puts "Please enter the name of a genre:"
@@ -130,6 +133,9 @@ class MusicLibraryController
       puts "Artist does not exist"
     end
   end
+
+  
+
 
    def list_genre
     puts "Enter genre"
