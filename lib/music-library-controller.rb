@@ -64,7 +64,9 @@ class MusicLibraryController
           artist_songs << song
         end
     end
-  end
+    artist_songs = artist_songs.sort_by{|song|song.name}
+      artist_songs.each {|song|puts "#{artist_songs.index(song) + 1}. #{song.name} - #{song.genre.name}"} unless artist_songs == nil
+    end
    
   def list_artists
       sorted_library = self.library(Artist).sort_by {|object|object.name}
