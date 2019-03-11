@@ -101,7 +101,7 @@ class MusicLibraryController
          #Returns an array, first value is artist, second is song, third is genre
          file_bits = filename.gsub(/(\.mp3)/,'')
          file_bits = file_bits.split(" - ")
-       end     
+       end
 
   def song_array
     sorted_library = self.library.sort_by {|song|song.name}
@@ -134,7 +134,7 @@ class MusicLibraryController
     end
   end
 
-  
+
 
 
    def list_genre
