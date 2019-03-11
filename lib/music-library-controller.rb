@@ -94,6 +94,12 @@ class MusicLibraryController
 
        end
 
+  def song_array
+    sorted_library = self.library.sort_by {|song|song.name}
+    sorted_library.collect do |song|
+      "#{sorted_library.index(song) + 1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+    end
+  end
 
   def list_artists
       sorted_library = self.library(Artist).sort_by {|object|object.name}
@@ -106,6 +112,8 @@ class MusicLibraryController
     genres = sorted_library.collect {|song|"#{song.genre.name}"}.uniq
     genres.each {|genre| puts "#{genres.index(genre) + 1}. #{genre}"}
   end
+
+   
 
    def list_artist
     puts "Enter artist"
