@@ -55,10 +55,16 @@ class MusicLibraryController
     end
   end
 
-   def list_artists
-    #  binding.pry
-    Artist.all.each {|artist| puts artist.name}
-  end
+  #  def list_artists
+  #   #  binding.pry
+  #   Artist.all.each {|artist| puts artist.name}
+  # end
+
+  def list_artists
+      sorted_library = self.library(Artist).sort_by {|object|object.name}
+      artists = sorted_library.collect {|object|"#{object.name}"}.uniq
+      artists.each {|artist| puts "#{artists.index(artist) + 1}. #{artist}"}
+    end
 
    def list_genres
     Genre.all.each {|genre| puts genre.name}
