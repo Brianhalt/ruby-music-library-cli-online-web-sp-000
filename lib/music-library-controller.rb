@@ -55,11 +55,17 @@ class MusicLibraryController
     end
   end
 
-  #  def list_artists
-  #   #  binding.pry
-  #   Artist.all.each {|artist| puts artist.name}
-  # end
-
+  def list_songs_by_artist
+    puts "Please enter the name of an artist:"
+    user_input = gets.chomp
+    artist_songs =[]
+    self.library.each do |song|
+        if song.artist.name == user_input
+          artist_songs << song
+        end
+    end
+  end 
+   
   def list_artists
       sorted_library = self.library(Artist).sort_by {|object|object.name}
       artists = sorted_library.collect {|object|"#{object.name}"}.uniq
