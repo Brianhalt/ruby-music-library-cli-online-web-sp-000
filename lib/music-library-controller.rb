@@ -40,6 +40,12 @@ class MusicLibraryController
     end
   end
 
+  def library(klass = Song)
+      sorted_library = klass.all.collect{|object|object if object.class == klass }
+      sorted_library = sorted_library.delete_if {|object|object==nil}
+      sorted_library.uniq
+    end
+
    def list_songs
     #  binding.pry
     # Song.all.each_with_index {|song,index|puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
