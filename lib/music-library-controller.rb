@@ -38,35 +38,31 @@ class MusicLibraryController
     end
 
 
-
-
   def library(klass = Song)
       sorted_library = klass.all.collect{|object|object if object.class == klass }
       sorted_library = sorted_library.delete_if {|object|object==nil}
       sorted_library.uniq
     end
 
-   def list_songs
-    #  binding.pry
-    # Song.all.each_with_index {|song,index|puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
+  def list_songs
     sorted_library = self.library.sort_by {|song|song.name}
     sorted_library.each do |song|
       puts "#{sorted_library.index(song) + 1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
     end
   end
 
-    def list_songs_by_artist
-        puts "Please enter the name of an artist:"
-        user_input = gets.chomp
-        artist_songs =[]
-        self.library.each do |song|
-            if song.artist.name == user_input
-              artist_songs << song
-            end
-        end
-        artist_songs = artist_songs.sort_by{|song|song.name}
-        artist_songs.each {|song|puts "#{artist_songs.index(song) + 1}. #{song.name} - #{song.genre.name}"} unless artist_songs == nil
+  def list_songs_by_artist
+      puts "Please enter the name of an artist:"
+      user_input = gets.chomp
+      artist_songs =[]
+      self.library.each do |song|
+          if song.artist.name == user_input
+            artist_songs << song
+          end
       end
+      artist_songs = artist_songs.sort_by{|song|song.name}
+      artist_songs.each {|song|puts "#{artist_songs.index(song) + 1}. #{song.name} - #{song.genre.name}"} unless artist_songs == nil
+  end
 
     def list_songs_by_genre
         puts "Please enter the name of a genre:"
