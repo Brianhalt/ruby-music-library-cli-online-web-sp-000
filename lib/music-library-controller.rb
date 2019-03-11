@@ -113,7 +113,7 @@ class MusicLibraryController
     genres.each {|genre| puts "#{genres.index(genre) + 1}. #{genre}"}
   end
 
-   
+
 
    def list_artist
     puts "Enter artist"
