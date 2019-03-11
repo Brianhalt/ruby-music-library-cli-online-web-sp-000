@@ -64,7 +64,7 @@ class MusicLibraryController
           artist_songs << song
         end
     end
-  end 
+  end
    
   def list_artists
       sorted_library = self.library(Artist).sort_by {|object|object.name}
